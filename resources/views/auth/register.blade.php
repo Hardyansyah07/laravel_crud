@@ -37,13 +37,13 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> 
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('jenis kelamin') }}</label>
 
                             <div class="col-md-6">
-                                
+
                                 <select class="form-select" aria-label="Default select example" input id="jenis_kelamin" type="jenis_kelamin" class="form-control @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" value="{{ old('jenis_kelamin') }}" required autocomplete="jenis_kelamin">
                                     <option selected>Pilih Jenis Kelamin</option>
                                     <option value="Laki-Laki">Laki-Laki</option>
