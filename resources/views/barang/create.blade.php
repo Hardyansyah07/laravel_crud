@@ -48,13 +48,20 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">ID Merek</label>
-                            <input type="number" class="form-control @error('id_merek') is-invalid @enderror" name="id_merek"
-                                value="{{ old('id_merek') }}" placeholder="id_merek" required>
-                            @error('id_merek')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                           <label class="form-label">Merek</label>
+                           <select name="id_merek" class="form-select">
+                            @forelse ($barang as $data)
+                                <option value="{{$data->id}}" @error('id_merek') is-invalid @enderror>
+                                    {{ $data->nama_merek }}</option>
+                            @empty
+                                    <option value="" disabled>Data belum Tersedia</option>
+                            @endforelse
+                           </select>
+
+                           @error('id_merek')
+                           <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                           </span>
                             @enderror
                         </div>
 

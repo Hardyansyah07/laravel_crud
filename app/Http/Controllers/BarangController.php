@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Merek;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Storage;
 
 
@@ -29,13 +30,15 @@ class BarangController extends Controller
 
     public function index()
     {
-        $barang = Barang::latest()->paginate(5);
+        $barang = Barang::with("merek")->latest()->paginate(5);
         return view('barang.index', compact('barang'));
     }
 
     public function create()
     {
-        return view('barang.create');
+        // $barang = Merek::all();
+        $barang = Merek::all();
+        return view('barang.create', compact("barang"));
     }
 
     public function store(Request $request)

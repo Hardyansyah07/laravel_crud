@@ -39,7 +39,7 @@
                                     <td>{{ $data->nama_barang }}</td>
                                     <td>{!! $data->harga !!}</td>
                                     <td>{!! $data->stok!!}</td>
-                                    <td>{{ $data->id_merek }}</td>
+                                    <td>{{ $data->merek->nama_merek }}</td>
                                     <td>
                                         <form action="{{ route('barang.destroy', $data->id) }}" method="POST">
                                             @csrf
